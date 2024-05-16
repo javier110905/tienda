@@ -1,19 +1,10 @@
 package tiendaBD;
 
-class Motos {
-    // Atributos
-    private String marca;
-    private String modelo;
-    private int año;
-    private double precio;
-    private String color;
-    private String matricula;
-    private boolean comprada = false;
-    private boolean alquilada; 
-    private long diasAlquilados; 
+class Moto  extends Vehiculo{
+
 
     // Constructores
-    public Motos(String marca, String modelo, int año, double precio, String color, String matricula) {
+    public Moto(String marca, String modelo, int año, double precio, String color, String matricula) {
         this.marca = marca;
         this.modelo = modelo;
         this.año = año;
@@ -23,7 +14,7 @@ class Motos {
         this.alquilada = false; 
         this.diasAlquilados = 0;
     }
-    public Motos() {
+    public Moto() {
     	
     }
 

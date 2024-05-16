@@ -1,12 +1,14 @@
 package tiendaBD;
 
-import java.io.Console;
+import java.io.File;
+import java.io.FileWriter;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.time.LocalDateTime;
 import java.util.Scanner;
 
 public class Main {
@@ -121,10 +123,10 @@ public class Main {
 		String contrasena = scanner.nextLine();
 		System.out.println("Introduzca el teléfono del nuevo usuario:");
 		int telefono = scanner.nextInt();
-		scanner.nextLine(); // Limpia el buffer después de leer un número.
+		scanner.nextLine(); 
 		System.out.println("Introduzca el año del carnet del nuevo usuario:");
 		int anoCarnet = scanner.nextInt();
-		scanner.nextLine(); // Limpia el buffer después de leer un número.
+		scanner.nextLine(); 
 		System.out.println("Introduzca el rol del nuevo usuario:");
 		String rol = scanner.nextLine();
 
@@ -155,7 +157,7 @@ public class Main {
 	/***************************************************************************************
 	 * Usuarios:
 	 */
-	public static void eliminarRegistro() {
+	public static boolean eliminarRegistro() {
 		Scanner sc = new Scanner(System.in);
 		System.out.println("Introduzca DNI para eliminar el registro: ");
 		String DNI = sc.nextLine();
@@ -167,16 +169,18 @@ public class Main {
 			int resultado = declaracion.executeUpdate();
 			if (resultado > 0) {
 				System.out.println("Registro eliminado correctamente.");
+				return true;
 			} else {
 				System.out.println("No se encontró el registro a eliminar o no se pudo eliminar.");
+				return false;
 			}
 		} catch (SQLException e) {
 			// Manejo de errores SQL
 			System.out.println("Error al eliminar registro: " + e.getMessage());
-			e.printStackTrace();
 		}
+		return false;
 	}
-
+ 
 	public static void leerRegistros() {
 		String consulta = "SELECT * FROM usuarios";
 		try (Connection conexion = obtenerConexion();

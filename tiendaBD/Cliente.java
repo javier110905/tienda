@@ -6,9 +6,10 @@ import java.util.Scanner;
 public class Cliente {
 
 	protected String nombre = "Sin nombre";
-	protected String apellido = "Sin apellidos";
-	protected String DNI;
-	protected long telefono = 0000000000;
+	private String apellido = "Sin apellidos";
+	private String DNI;
+	private long telefono = 0000000000;
+    private int AñodelCarnet = 2000;
 	protected String contraseña = "Sin contraseña";
 	
 	//Constructores
